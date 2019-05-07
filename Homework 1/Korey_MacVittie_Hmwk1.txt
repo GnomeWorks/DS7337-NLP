@@ -1,0 +1,20 @@
+MACVITTIE - DS 7337 (NLP) - HOMEWORK 1
+
+-- Lexical Diversity --
+0.1598036110231232
+0.12341059405350653
+0.1009049879568786
+
+These results seem odd: one would expect a higher-grade "reader" to have more diversity in the words used than a lower-grade.
+
+-- Vocabulary Size --
+4036
+10356
+17260
+
+These results are not surprising. A higher-grade reader would be expected to have a stronger, larger vocabulary than a younger one.
+
+It seems fairly sensible that using multiple metrics is going to be more effective than using only one: the main concern, however, seems to be that lexical diversity seems paradoxical, in that as a text grows in length and presumably complexity, the apparent diversity decreases. I would presume that this is probably due to 'functional' words in English: connecting words like 'a' and 'the,' for instance, may appear more often in longer texts, effectively reducing their diversity even in the presence of an increased diversity in vocabulary. For an example, let's run those metrics on this answer:
+
+0.6666666666666666
+76
