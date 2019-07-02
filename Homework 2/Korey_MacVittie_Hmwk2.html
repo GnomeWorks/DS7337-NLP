@@ -11781,7 +11781,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[86]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
@@ -11828,14 +11828,14 @@ div#notebook {
 [nltk_data]   Package treebank is already up-to-date!
 [nltk_data] Downloading package words to
 [nltk_data]     C:\Users\kmacvitt\AppData\Roaming\nltk_data...
-[nltk_data]   Unzipping corpora\words.zip.
+[nltk_data]   Package words is already up-to-date!
 </pre>
 </div>
 </div>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[26]:</div>
+<div class="prompt output_prompt">Out[86]:</div>
 
 
 
@@ -11852,7 +11852,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[87]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.book</span> <span class="k">import</span> <span class="o">*</span>
@@ -11866,40 +11866,10 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>*** Introductory Examples for the NLTK Book ***
-Loading text1, ..., text9 and sent1, ..., sent9
-Type the name of the text or sentence to view it.
-Type: &#39;texts()&#39; or &#39;sents()&#39; to list the materials.
-text1: Moby Dick by Herman Melville 1851
-text2: Sense and Sensibility by Jane Austen 1811
-text3: The Book of Genesis
-text4: Inaugural Address Corpus
-text5: Chat Corpus
-text6: Monty Python and the Holy Grail
-text7: Wall Street Journal
-text8: Personals Corpus
-text9: The Man Who Was Thursday by G . K . Chesterton 1908
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[83]:</div>
+<div class="prompt input_prompt">In&nbsp;[98]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># lexical diversity</span>
@@ -11916,11 +11886,13 @@ text9: The Man Who Was Thursday by G . K . Chesterton 1908
 
 <span class="c1"># split text</span>
 <span class="k">def</span> <span class="nf">splitTxt</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;[^a-z&#39;]&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;[^a-z&#39;]+&quot;</span><span class="p">)</span>
             
 <span class="c1"># remove meta</span>
 <span class="k">def</span> <span class="nf">removeMeta</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">end_line</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">start_line</span><span class="p">,</span> <span class="n">t</span><span class="p">)[</span><span class="mi">1</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">start_line</span> <span class="o">=</span> <span class="s2">&quot;*** START OF THIS PROJECT GUTENBERG EBOOK [A-Z ]+***&quot;</span>
+    <span class="n">end_line</span> <span class="o">=</span> <span class="s2">&quot;*** END OF THIS PROJECT GUTENBERG EBOOK [A-Z]+***&quot;</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">end_line</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">start_line</span><span class="p">,</span> <span class="n">text</span><span class="p">)[</span><span class="mi">1</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -11939,7 +11911,7 @@ text9: The Man Who Was Thursday by G . K . Chesterton 1908
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="prompt input_prompt">In&nbsp;[99]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_words</span> <span class="o">=</span> <span class="n">words</span><span class="o">.</span><span class="n">words</span><span class="p">()</span>
@@ -11955,7 +11927,7 @@ text9: The Man Who Was Thursday by G . K . Chesterton 1908
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="prompt input_prompt">In&nbsp;[100]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">max_words</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">vocabScore</span><span class="p">(</span><span class="n">text1</span><span class="p">),</span> <span class="n">vocabScore</span><span class="p">(</span><span class="n">text2</span><span class="p">),</span> <span class="n">vocabScore</span><span class="p">(</span><span class="n">text3</span><span class="p">),</span> <span class="n">vocabScore</span><span class="p">(</span><span class="n">text4</span><span class="p">),</span>
@@ -11970,7 +11942,7 @@ text9: The Man Who Was Thursday by G . K . Chesterton 1908
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="prompt input_prompt">In&nbsp;[101]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">text1</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
@@ -11999,7 +11971,7 @@ text9: The Man Who Was Thursday by G . K . Chesterton 1908
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[56]:</div>
+<div class="prompt output_prompt">Out[101]:</div>
 
 
 
@@ -12034,7 +12006,7 @@ text9: The Man Who Was Thursday by G . K . Chesterton 1908
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[70]:</div>
+<div class="prompt input_prompt">In&nbsp;[102]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">longWordCnt</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">min_length</span> <span class="o">=</span> <span class="mi">10</span><span class="p">):</span>
@@ -12066,7 +12038,7 @@ text9: The Man Who Was Thursday by G . K . Chesterton 1908
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[71]:</div>
+<div class="prompt input_prompt">In&nbsp;[103]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">longWordCnt</span><span class="p">(</span><span class="n">text4</span><span class="p">))</span>
@@ -12097,7 +12069,7 @@ text9: The Man Who Was Thursday by G . K . Chesterton 1908
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[72]:</div>
+<div class="prompt input_prompt">In&nbsp;[104]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">longWordScore</span><span class="p">(</span><span class="n">text4</span><span class="p">)</span>
@@ -12113,7 +12085,7 @@ text9: The Man Who Was Thursday by G . K . Chesterton 1908
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[72]:</div>
+<div class="prompt output_prompt">Out[104]:</div>
 
 
 
@@ -12150,7 +12122,7 @@ text9: The Man Who Was Thursday by G . K . Chesterton 1908
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[73]:</div>
+<div class="prompt input_prompt">In&nbsp;[105]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">file1</span> <span class="o">=</span> <span class="s1">&#39;./data/2.txt&#39;</span>
@@ -12204,7 +12176,7 @@ C:\ProgramData\Anaconda3\lib\site-packages\ipykernel_launcher.py:7: DeprecationW
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[81]:</div>
+<div class="prompt input_prompt">In&nbsp;[106]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">ttlScore</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
@@ -12218,7 +12190,7 @@ C:\ProgramData\Anaconda3\lib\site-packages\ipykernel_launcher.py:7: DeprecationW
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[84]:</div>
+<div class="prompt input_prompt">In&nbsp;[107]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ttlScore</span><span class="p">(</span><span class="n">txt1</span><span class="p">))</span>
